@@ -71,7 +71,45 @@ public class Fraction {
 	}
 	
 	public void reduce() {
+		int n=numor;
+		int d=denom;
+		while(n!=d) {
+			if(n>d) n-=d;
+			if(n<d) d-=n;
+			if(d<=0 || n<=0) {
+				n=d;
+			}
+		}
+		if(n>0 && d>0) {
+			numor/=n;
+			denom/=d;
+		} else System.out.println("Error: no gcf");
+	}
+	
+	public static Fraction mult(Fraction a, Fraction b) {
+		int n=a.getNum()*b.getNum();
+		int d=a.getDen()*b.getDen();
+		return new Fraction(n,d);
+	}
+	public static Fraction div(Fraction a, Fraction b) {
+		int n=a.getNum()*b.getDen();
+		int d=a.getDen()*b.getNum();
+		return new Fraction(n,d);
+	}
+	public static Fraction add(Fraction a, Fraction b) {
+		int n1=a.getNum()*b.getDen();
+		int d=a.getDen()*b.getDen();
+		int n2=b.getNum()*a.getDen();
 		
+		return new Fraction((n1+n2),d);
+	}
+	
+	public static Fraction sub(Fraction a, Fraction b) {
+		int n1=a.getNum()*b.getDen();
+		int d=a.getDen()*b.getDen();
+		int n2=b.getNum()*a.getDen();
+		
+		return new Fraction((n1-n2),d);
 	}
 	
 }
