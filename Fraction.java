@@ -89,18 +89,24 @@ public class Fraction {
 	public static Fraction mult(Fraction a, Fraction b) {
 		int n=a.getNum()*b.getNum();
 		int d=a.getDen()*b.getDen();
-		return new Fraction(n,d);
+		Fraction answer = new Fraction(n,d);
+		answer.reduce();
+		return answer;
 	}
 	public static Fraction div(Fraction a, Fraction b) {
 		int n=a.getNum()*b.getDen();
 		int d=a.getDen()*b.getNum();
-		return new Fraction(n,d);
+		Fraction answer = new Fraction(n,d);
+		answer.reduce();
+		return answer;
 	}
 	public static Fraction add(Fraction a, Fraction b) {
 		int n1=a.getNum()*b.getDen();
 		int d=a.getDen()*b.getDen();
 		int n2=b.getNum()*a.getDen();
-		
+		//Fraction answer = Fraction((n1+n2),d);
+		//answer.reduce();
+		//return answer;
 		return new Fraction((n1+n2),d);
 	}
 	
@@ -108,7 +114,9 @@ public class Fraction {
 		int n1=a.getNum()*b.getDen();
 		int d=a.getDen()*b.getDen();
 		int n2=b.getNum()*a.getDen();
-		
+		//Fraction answer = Fraction((n1-n2),d);
+		//answer.reduce();
+		//return answer;
 		return new Fraction((n1-n2),d);
 	}
 	
